@@ -42,3 +42,11 @@ We'll also discuss considerations such as starting small with an eye toward futu
 - Install PyCharm (Pro; free eval)
 - Bootstrap a Django project in Docker: https://docs.docker.com/compose/django/
     - Add the PostgreSQL client to the app image: https://hub.docker.com/_/django/
+
+## TODO
+
+- Get going in PyCharm: https://www.jetbrains.com/help/pycharm/using-docker-compose-as-a-remote-interpreter.html
+- Run the containers/app and address messages that come up
+- Set DB password and access
+- Set allowed hosts, etc. in Django app
+- Set favicon.ico
