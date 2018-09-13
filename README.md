@@ -41,3 +41,4 @@ We'll also discuss considerations such as starting small with an eye toward futu
 - Install Docker Desktop for Windows
 - Install PyCharm (Pro; free eval)
 - Bootstrap a Django project in Docker: https://docs.docker.com/compose/django/
+    - Add the PostgreSQL client to the app image: https://hub.docker.com/_/django/
