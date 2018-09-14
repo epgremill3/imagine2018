@@ -15,7 +15,9 @@ We'll also discuss considerations such as starting small with an eye toward futu
     - Redis write-through cache?
     - Testing w/ Nightwatch?
 - Jenkins build
-- Bootstrap / HTML 5 / CSS 3 (?)
+    - Compile SCSS / SASS and other static content?
+    - Run tests
+- Bootstrap / HTML 5 / CSS 3 / LESS --or-- SASS --or-- SCSS (?)
 
 ## Discussion Points
 
@@ -35,18 +37,42 @@ We'll also discuss considerations such as starting small with an eye toward futu
 
 ## What I did
 
-- Install Git for Windows
-- Create the GitHub repository (and clone it locally)
 - Upgrade to Windows 10 Pro
 - Install Docker Desktop for Windows
+- Install Git for Windows
+    - Setup name, email, etc.
+- Create the GitHub repository (and clone it locally)
 - Install PyCharm (Pro; free eval)
 - Bootstrap a Django project in Docker: https://docs.docker.com/compose/django/
     - Add the PostgreSQL client to the app image: https://hub.docker.com/_/django/
+- Apply initial migrations
+    - Hinted by a warning in the console output on `docker-compose up`
+    - Had to get into web container via `docker exec <container_id> bash`
+    - Once in ran `./manage.py migrate`
+    - Could have also done this through PyCharm: `Tools` > `Run manage.py task...` then enter `migrate`...
+- Configured PyCharm to use Docker, etc.: https://www.jetbrains.com/help/pycharm/using-docker-compose-as-a-remote-interpreter.html
+- Configured PyCharm to connect to the database
+    - First set a password in the db service in `docker-compose.yml`
+    - Then updated the password (added) to `settings.py`
+    - Then was able to configure DB connection to 0.0.0.0:5432 for user postgres with that password and include public schema
+- Added JetBrains files to .gitignore (Google "pycharm gitignore")
 
 ## TODO
 
-- Get going in PyCharm: https://www.jetbrains.com/help/pycharm/using-docker-compose-as-a-remote-interpreter.html
+- Debug via PyCharm: https://www.jetbrains.com/help/pycharm/using-docker-compose-as-a-remote-interpreter.html#debug
+- Figure out how to merge and resolve merge conflicts using PyCharm
 - Run the containers/app and address messages that come up
-- Set DB password and access
+    - `The psycopg2 wheel package will be renamed from release 2.8; in order to keep installing from binary please use "pip install psycopg2-binary" instead.`
+- Configure web app container for when it runs
+    - Automatically restart when files change
+    - Apply migrations
+- Add some basic functionality
+- Add some basic tests
+- Setup Jenkins to build and run tests for every branch pushed
+    - Must have a pull request?
+    - Merge master first?
+    - Tag merges into master automatically?
+- Set DB password for environments (dev, staging, production)
+- Store DB password(s) as secrets and inject via build (CI/CD)
 - Set allowed hosts, etc. in Django app
 - Set favicon.ico
