@@ -61,18 +61,22 @@ We'll also discuss considerations such as starting small with an eye toward futu
 
 - Debug via PyCharm: https://www.jetbrains.com/help/pycharm/using-docker-compose-as-a-remote-interpreter.html#debug
 - Figure out how to merge and resolve merge conflicts using PyCharm
+- Figure out which files in the `./idea` folder, if any, to add to the repo (_seems like they're all machine-specific_)
 - Run the containers/app and address messages that come up
     - `The psycopg2 wheel package will be renamed from release 2.8; in order to keep installing from binary please use "pip install psycopg2-binary" instead.`
 - Configure web app container for when it runs
     - Automatically restart when files change
     - Apply migrations
 - Add some basic functionality
+    - Working on the Django tutorial: https://docs.djangoproject.com/en/2.1/intro/tutorial01/
+    - Might want to try to debug something first to make sure it works?
 - Add some basic tests
 - Setup Jenkins to build and run tests for every branch pushed
     - Must have a pull request?
     - Merge master first?
     - Tag merges into master automatically?
 - Set DB password for environments (dev, staging, production)
+- Reconfigure the Django app to run under a REAL web server (Apache, WSGI, nginx, ...?)
 - Store DB password(s) as secrets and inject via build (CI/CD)
 - Set allowed hosts, etc. in Django app
 - Set favicon.ico
