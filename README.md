@@ -56,27 +56,36 @@ We'll also discuss considerations such as starting small with an eye toward futu
     - Then updated the password (added) to `settings.py`
     - Then was able to configure DB connection to 0.0.0.0:5432 for user postgres with that password and include public schema
 - Added JetBrains files to .gitignore (Google "pycharm gitignore")
+- Figure out how to merge and resolve merge conflicts using PyCharm
+- Completed Part 1 of the Django tutorial: https://docs.djangoproject.com/en/2.1/intro/tutorial01/
+    - This created a very simple "Hello World" app (tutorial was for polls but I adjusted)
+- Started working through Part 2 of the Django tutorial: https://docs.djangoproject.com/en/2.1/intro/tutorial02/
+    - Detoured to how to use the Django authentication / user framework: https://docs.djangoproject.com/en/2.1/topics/auth/
 
 ## TODO
 
+- Add some basic functionality
+    - At the point of adding admin users to the app: https://docs.djangoproject.com/en/2.1/intro/tutorial02/#introducing-the-django-admin
+    - Continue learning how to use the Django authentication / user framework: https://docs.djangoproject.com/en/2.1/topics/auth/
+    - Might want to try to debug something first to make sure it works?
+- Add some basic tests
 - Debug via PyCharm: https://www.jetbrains.com/help/pycharm/using-docker-compose-as-a-remote-interpreter.html#debug
-- Figure out how to merge and resolve merge conflicts using PyCharm
 - Figure out which files in the `./idea` folder, if any, to add to the repo (_seems like they're all machine-specific_)
 - Run the containers/app and address messages that come up
     - `The psycopg2 wheel package will be renamed from release 2.8; in order to keep installing from binary please use "pip install psycopg2-binary" instead.`
 - Configure web app container for when it runs
     - Automatically restart when files change
     - Apply migrations
-- Add some basic functionality
-    - Working on the Django tutorial: https://docs.djangoproject.com/en/2.1/intro/tutorial01/
-    - Might want to try to debug something first to make sure it works?
-- Add some basic tests
 - Setup Jenkins to build and run tests for every branch pushed
     - Must have a pull request?
     - Merge master first?
     - Tag merges into master automatically?
+- Checkout the Django checklist for production deployments: https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
+- Django URL dispatcher: https://docs.djangoproject.com/en/2.1/topics/http/urls/
+- Deploying Django with WSGI: https://docs.djangoproject.com/en/2.1/howto/deployment/wsgi/
 - Set DB password for environments (dev, staging, production)
 - Reconfigure the Django app to run under a REAL web server (Apache, WSGI, nginx, ...?)
 - Store DB password(s) as secrets and inject via build (CI/CD)
 - Set allowed hosts, etc. in Django app
 - Set favicon.ico
+- Django how to install a DB: https://docs.djangoproject.com/en/2.1/topics/install/#database-installation (important?)
