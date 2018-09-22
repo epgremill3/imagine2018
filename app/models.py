@@ -1,17 +1,38 @@
 from django.contrib.auth.models import User
 from django.db import models
+from django.utils.timezone import now
 
-class UserLocation(models.Model):
-    """Represents a geographic location for a user at a point in time"""
-    user = models.ForeignKey(User, on_delete=models.PROTECT, null=False)
-    # Per https://stackoverflow.com/a/16743805
-    # latitude is [-90, +90], longitude is [-180, +180]
-    # six decimal places is 10 cm distance for latitude and longitude at the equator (and less at the poles)
-    latitude = models.DecimalField(null=False, decimal_places=6, max_digits=8)
-    longitude = models.DecimalField(null=False, decimal_places=6, max_digits=9)
-    timestamp = models.DateTimeField(null=False, auto_now=True)
+
+class Car(models.Model):
+    """Represents a car that a person owns"""
+    owner = models.ForeignKey(User, on_delete=models.PROTECT, null=False)
+    year = models.IntegerField(null=False)
+    make = models.TextField(max_length=255, blank=False, null=False)
+    model = models.TextField(max_length=255, blank=False, null=False)
+    color = models.TextField(max_length=255, blank=False, null=False)
+    vin = models.TextField(max_length=255, blank=True, null=True)
+    last_updated = models.DateTimeField(null=False, auto_now=True)
+
+    def _set_year(self, year: int):
+        """Validate that the year is within a valid range for cars before setting"""
+        current_year = now().year
+        if 1800 <= year <= current_year:
+            self.year = year
+        else:
+            raise ValueError("Year {year} must be between 1800 and {current_year}".format(
+                year=year, current_year=current_year
+            ))
+
+    def __init__(self, owner: User, year: int, make: str, model: str, color: str, vin: str = "", *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.owner = owner
+        self.make = make
+        self.model = model
+        self.color = color
+        self.vin = vin
+        self._set_year(year)
 
     def __str__(self):
-        return "{user_name} at {latitude},{longitude} since {timestamp}".format(
-            user_name=self.user.user_name, latitude=self.latitude, longitude=self.longitude, timestamp=self.timestamp
+        return "{owner}'s {color} {year} {make} {model}".format(
+            owner=self.owner, color=self.color, year=self.year, make=self.make, model=self.model
         )
