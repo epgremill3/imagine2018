@@ -1,5 +1,6 @@
 # Bootstrapping a Professional Software Project
 
+Small change... 
 This hands-on workshop will introduce participants to products and processes used in medium to large-scale professional software projects. 
 Through the lens of a sample web application we'll examine the infrastructure and practices used to build applications with a large team. 
 Technologies will include GitHub, Docker, Jenkins, Django, PostgreSQL, and more. 
