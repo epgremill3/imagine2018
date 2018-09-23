@@ -93,8 +93,14 @@
             1. Configure name, email, any other settings (autocrlf, safecrlf, etc.)
         1. GitHub
             1. Register / Create Account (if don't already have one)
-            1. I'll _probably_ then have to add them as collaborators _**TODO:** test this out!_
-            1. Can then clone the repo _**TODO:** do through Git (Bash) or PyCharm?_
+            1. Tell / Send me your GitHub username and I'll invite you to collaborate
+            1. Accept the invitation then clone the repo
+                1. Open PyCharm
+                1. Checkout from version control
+                1. Git
+                1. Paste in the repo URL: https://github.com/epgremill3/imagine2018.git
+                1. Select where to save it and click Go
+                1. When asked go ahead and open it up
         1. Install PyCharm Pro (eval)
             1. Open the project
             1. [Configure PyCharm to use Docker](https://www.jetbrains.com/help/pycharm/using-docker-compose-as-a-remote-interpreter.html)
