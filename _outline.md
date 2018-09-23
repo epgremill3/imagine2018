@@ -94,15 +94,15 @@
         1. GitHub
             1. Register / Create Account (if don't already have one)
             1. Tell / Send me your GitHub username and I'll invite you to collaborate
-            1. Accept the invitation then clone the repo
+            1. Accept the invitation
+        1. Install PyCharm Pro (eval)
+            1.  Clone the repo
                 1. Open PyCharm
                 1. Checkout from version control
                 1. Git
-                1. Paste in the repo URL: https://github.com/epgremill3/imagine2018.git
+                1. Paste in the repo URL: `https://github.com/epgremill3/imagine2018.git`
                 1. Select where to save it and click Go
                 1. When asked go ahead and open it up
-        1. Install PyCharm Pro (eval)
-            1. Open the project
             1. [Configure PyCharm to use Docker](https://www.jetbrains.com/help/pycharm/using-docker-compose-as-a-remote-interpreter.html)
             1. Configure PyCharm to connect to the database
                 1. View > Tool Windows > Database
