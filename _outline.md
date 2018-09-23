@@ -104,6 +104,20 @@
                 1. Select where to save it and click Go
                 1. When asked go ahead and open it up
             1. [Configure PyCharm to use Docker](https://www.jetbrains.com/help/pycharm/using-docker-compose-as-a-remote-interpreter.html)
+                1. Add the Docker server to PyCharm
+                    1. File > Settings > Build, Execution, and Deployment > Docker
+                    1. Click the "+" to create a new Docker server; accept the defaults and click OK
+                1. Set the project interpreter
+                    1. File > Settings > Project: imagine2018 > Project Interpreter
+                    1. Click the gear icon and choose "Add..."
+                    1. Select Docker Compose
+                    1. Server=Docker, Configuration File=./docker-compose.yml, Service=web, Python interpreter path=python3
+                    1. Click "OK"
+                1. Set up the run profile
+                    1. In the dropdown at the top near the run button click and select "Edit Configurations..."
+                    1. Add a Django Server (if not already present)
+                    1. Name=imagine2018, host=0.0.0.0, Python interpreter=<the one we created (_Remote Python 3.7.0 Docker Compose (web at ...)_)>
+                    1. I think all the other defaults are fine; press OK
             1. Configure PyCharm to connect to the database
                 1. View > Tool Windows > Database
                 1. "+" > Data Source > PostgreSQL
