@@ -70,6 +70,11 @@ We'll also discuss considerations such as starting small with an eye toward futu
     - Might want to try to debug something first to make sure it works?
 - Add some basic tests
 - Debug via PyCharm: https://www.jetbrains.com/help/pycharm/using-docker-compose-as-a-remote-interpreter.html#debug
+- In your "free" AWS account:
+    - Deploy to ECS: https://aws.amazon.com/getting-started/tutorials/deploy-docker-containers/
+    - Create a Docker Registry: https://docs.aws.amazon.com/AmazonECR/latest/userguide/ECR_GetStarted.html
+    - Build an image and push it to the Docker Registry (_is this still free?_)
+    - Deploy to RDS: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.PostgreSQL.html
 - Figure out which files in the `./idea` folder, if any, to add to the repo (_seems like they're all machine-specific_)
 - Run the containers/app and address messages that come up
     - `The psycopg2 wheel package will be renamed from release 2.8; in order to keep installing from binary please use "pip install psycopg2-binary" instead.`

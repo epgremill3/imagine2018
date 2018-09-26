@@ -100,7 +100,7 @@ Put differently:
     - Approval? Testing? Etc.?
     - CI? CD?
 
-## Getting to Work
+## Preparation / Startup
 
 ### Bootstrap the project
 
@@ -118,63 +118,82 @@ I'll run through these steps quickly; feel free to ask questions...
 
 ### Setup the development environment
 
+#### Note
+
+Asked Iris to tell participants to do the following, so some/all of this may not be necessary:
+- Create GitHub account and pass along username
+- Install Git and configure username, email address, safe/auto CRLF, etc.
+- Install Docker
+- Install PyCharm Pro (free eval)
+
+#### Overall Steps and Considerations:
+
 - Flexibility can be a great thing, but standardization can be, too
     - Windows, Mac, Linux
     - PyCharm, VS Code, Sublime, etc.
     - Docker or Not?
     - Git Bash, GitHub Desktop, PyCharm, Git Tower, etc.
     - Mix and Match (but sometimes problems between multiple)
-- Docker Desktop (Windows Pro)
-    - Settings > General: Expose daemon ... without TLS
-    - Settings > Shared Drives: Make sure to share the drive on which you'll be developing
-- Install Git (for Windows) _**TODO:** Is this necessary with PyCharm?_
-    - Configure name, email, any other settings (autocrlf, safecrlf, etc.)
-- GitHub
-    - Register / Create Account (if don't already have one)
-    - Tell / Send me your GitHub username and I'll invite you to collaborate
-    - Accept the invitation
-- Install PyCharm Pro (eval)
-    -  Clone the repo
-        - Open PyCharm
-        - Checkout from version control
-        - Git
-        - Paste in the repo URL: `https://github.com/epgremill3/imagine2018.git`
-        - Select where to save it and click Go
-        - When asked go ahead and open it up
-    - [Configure PyCharm to use Docker](https://www.jetbrains.com/help/pycharm/using-docker-compose-as-a-remote-interpreter.html)
-        - Add the Docker server to PyCharm
-            - File > Settings > Build, Execution, and Deployment > Docker
-            - Click the "+" to create a new Docker server; accept the defaults and click OK
-        - Set the project interpreter
-            - File > Settings > Project: imagine2018 > Project Interpreter
-            - Click the gear icon and choose "Add..."
-            - Select Docker Compose
-            - Server=Docker, Configuration File=./docker-compose.yml, Service=web, Python interpreter path=python3
-            - Click "OK"
-        - Set up the run profile
-            - In the dropdown at the top near the run button click and select "Edit Configurations..."
-            - Add a Django Server (if not already present)
-            - Name=imagine2018, host=0.0.0.0, Python interpreter=<the one we created (_Remote Python 3.7.0 Docker Compose (web at ...)_)>
-            - I think all the other defaults are fine; press OK
-    - Configure PyCharm to connect to the database
-        - View > Tool Windows > Database
-        - "+" > Data Source > PostgreSQL
-        - Name
-        - General:
-            - Host = 0.0.0.0
-            - Database = postgres
-            - User = postgres
-            - Password = `POSTGRES_PASSWORD` from `docker-compose.yml`
-            - Will _probably_ have to click to "Download missing driver" (JDBC)
-            - Test connection _**TODO:** will this work without running `docker-compose up`?_
-        - Schemas
-            - Check current database and check **postgres**
-            - Expand **postgres** and ensure Current schema (public) is checked
-            - Probably doesn't hurt to check public (Current schema) too
 
-### Start Developing
+#### Docker Desktop (Windows Pro)
 
-#### Tickets we'll work on:
+- Settings > General: Expose daemon ... without TLS
+- Settings > Shared Drives: Make sure to share the drive on which you'll be developing
+
+#### Install Git (for Windows) 
+
+- _**TODO:** Is this necessary with PyCharm?_
+- Configure name, email, any other settings (autocrlf, safecrlf, etc.)
+
+#### GitHub
+
+- Register / Create Account (if don't already have one)
+- Tell / Send me your GitHub username and I'll invite you to collaborate
+- Accept the invitation
+
+#### Install PyCharm Pro (eval)
+
+-  Clone the repo
+    - Open PyCharm
+    - Checkout from version control
+    - Git
+    - Paste in the repo URL: `https://github.com/epgremill3/imagine2018.git`
+    - Select where to save it and click Go
+    - When asked go ahead and open it up
+- [Configure PyCharm to use Docker](https://www.jetbrains.com/help/pycharm/using-docker-compose-as-a-remote-interpreter.html)
+    - Add the Docker server to PyCharm
+        - File > Settings > Build, Execution, and Deployment > Docker
+        - Click the "+" to create a new Docker server; accept the defaults and click OK
+    - Set the project interpreter
+        - File > Settings > Project: imagine2018 > Project Interpreter
+        - Click the gear icon and choose "Add..."
+        - Select Docker Compose
+        - Server=Docker, Configuration File=./docker-compose.yml, Service=web, Python interpreter path=python3
+        - Click "OK"
+    - Set up the run profile
+        - In the dropdown at the top near the run button click and select "Edit Configurations..."
+        - Add a Django Server (if not already present)
+        - Name=imagine2018, host=0.0.0.0, Python interpreter=<the one we created (_Remote Python 3.7.0 Docker Compose (web at ...)_)>
+        - I think all the other defaults are fine; press OK
+- Configure PyCharm to connect to the database
+    - View > Tool Windows > Database
+    - "+" > Data Source > PostgreSQL
+    - Name
+    - General:
+        - Host = 0.0.0.0
+        - Database = postgres
+        - User = postgres
+        - Password = `POSTGRES_PASSWORD` from `docker-compose.yml`
+        - Will _probably_ have to click to "Download missing driver" (JDBC)
+        - Test connection _**TODO:** will this work without running `docker-compose up`?_
+    - Schemas
+        - Check current database and check **postgres**
+        - Expand **postgres** and ensure Current schema (public) is checked
+        - Probably doesn't hurt to check public (Current schema) too
+
+## Development Iteration 1
+
+### Tickets for Development Iteration 1
 
 - New users should be able to sign up for the app
 - Existing users should be able to sign into the app
@@ -186,13 +205,13 @@ I'll run through these steps quickly; feel free to ask questions...
 - A signed in user should be able to sign out
 - Ideally all of this will work on a desktop and a mobile web browser
 
-#### Process
+### Process
 
 - Assign ticket to collaborator
 - Code, commit, push
 - After a while we'll test and when it looks good we'll go live!
 
-#### Problems We'll Run Into
+### Problems We'll Run Into
 
 - "Lose" a collaborator part-way through: what happens to their work?
 - Merge conflicts on `master`
@@ -201,9 +220,9 @@ I'll run through these steps quickly; feel free to ask questions...
 - Will all the pages (views) look the same (consistent)?
 - Will the object model fit together well?
 
-## Doing Better
+## Development Iteration 2
 
-### Improving the Process
+### Revisions for Development Iteration 2
 
 There are a variety of workflows out there. 
 You can look at e.g. Git Flow (just Google "git flow") for a larger-scale, robust example. 
@@ -211,6 +230,10 @@ We're going to just do a few key things to improve our workflow without going qu
 - Protect master / use branches
     - Push to your branch regularly
     - Also update your ticket with notes / discoveries / decisions / etc.
+- Break up files (each gets own folder)
+    - models.py
+    - views.py
+    - tests.py
 - Add automated tests
     - Ideally we'd make this part of the automated process
     - To start we can enforce this by convention (reviewer can ask --or-- reviewer can run)
@@ -226,15 +249,14 @@ We're going to just do a few key things to improve our workflow without going qu
     - API / Object Model
     - Testing
 
-### Let's do a little more bootstrapping
+### Tickets for Development Iteration 2
 
+_These in addition to those for Development Iteration 1_
 - Integrate a GUI toolkit (e.g. Bootstrap) and propose some lightweight standards (in `README.md`)
 - Add automated tests for models and views and propose some lightweight standards (in `README.md`)
 - Look at the primary features of the app and design the object model and API all at once (details in tickets)
 
-### Now let's try developing again
-
-#### Revised workflow
+### Revised Development Workflow
 
 - Assign ticket to collaborator
 - Collaborator checks out a branch named for that ticket
@@ -243,53 +265,46 @@ We're going to just do a few key things to improve our workflow without going qu
 - Reviewer checks code, confirms tests passed, then approves merge into `master`
 - After a while we'll run automated and manual tests on `master`; when it looks good we'll tag and release
 
-#### We'll still run into problems
+### We'll still run into problems
 
 - There will still be merge conflicts that you'll have to resolve; it will just be in your branch...
 - Migrations and compatibility (_maybe_)...
 - There will still be bugs (there will _**always**_ be bugs)...
 
-## Going Live
+## Deployment
 
-### Securing It
+### Tickets for Deployment
 
-As a thought exercise pretend you're a very unhappy employee - everyone else is getting paid and you are not. 
-What harm could you do given what you know? 
-How could we reduce / minimize that? 
-- Change to the (U)WSGI web server (or Apache?)
-- Different database passwords for development and production; injected at appropriate place so no one sees PROD
-- Etc.
+- [Setup the ECS (App) cluster](https://aws.amazon.com/getting-started/tutorials/deploy-docker-containers/)
+    - [Setup a Docker Registry](https://docs.aws.amazon.com/AmazonECR/latest/userguide/ECR_GetStarted.html)
+    - Build Docker image(s) and push to Registry
+- [Setup the RDS (DB) cluster](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.PostgreSQL.html)
+- Secure passwords (e.g. DB)
+    - Environments
+    - KMS or similar
 
-### Taking It to Market
+## Continuous Integration and Deployment
 
-- AWS (ECS)
-- DB
-- Alpha, Beta, v1.0
+### Tickets for CI/CD
 
-### Extending, Supporting, and Maintaining It
+- Setup a Jenkins server
+- Script it to do the following when a build is triggered
+    - Run automated tests
+    - Build Docker image(s)
+    - Push Docker image(s) to Docker Registry (if tests passed?)
+- Configure it to do those things on commit to `master`
+- Discuss other Git workflow steps like merging master into branches before running tests, etc.
 
-- What happens when something goes wrong?
-    - How do we know that something went wrong?
-    - What do we do to try to figure out what went wrong and fix it?
-- How do we balance adding new features with our support load? What does our support load tell us about how we did?
-- How do we deal with backwards-compatibility as we move forward (change models, etc.)?
-- How do we upgrade our components (e.g. database, web app/GUI frameworks, etc.)?
-- How do we ensure we can recover if something goes wrong (disaster recovery, etc.)?
+## Go-Live and Beyond
 
-### Growing It
+### Tickets for Going Live
 
-Issues of scale:
-- AWS (ECS) cluster computing limits / costs
-- Database computing limits / costs
-- How do things change as we have more users?
-- How do usage patterns play out?
-    - For example, 1000 users all on at the same time vs. 1000000 users but never more than 100 on at a time
-
-## Selling It and Retiring (or Not)
-
-- Are people using it? Are they liking it? Will they recommend it to friends and family? Will they pay for it?
-- How do we make this a viable venture?
-    - Advertising?
-    - User fees (one-time, annual, monthly, etc.)
-    - Market to mechanics, etc. too?
-- Did we check for competition? Is there something like this out there already? If not, how quickly will there be?
+- Support and Maintenance
+    - Look at logs in CloudWatch
+    - Figure out how to get alerts on problems automatically (don't want to scan CloudWatch all day long)
+- Ongoing Development
+    - How do we deal with backwards-compatibility as we move forward (change models, etc.)?
+    - How do we upgrade our components (e.g. database, web app/GUI frameworks, etc.)?
+- Disaster Recovery
+    - AWS data centers / regions
+    - AWS backups and other best practices
