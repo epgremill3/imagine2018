@@ -213,7 +213,7 @@ Asked Iris to tell participants to do the following, so some/all of this may not
 
 ### Problems We'll Run Into
 
-- "Lose" a collaborator part-way through: what happens to their work?
+- "Lose" a collaborator part-way through: what happens to his/her work?
 - Merge conflicts on `master`
 - Manual testing is tedious and painful
 - Things will break unexpectedly because we're not well coordinated
