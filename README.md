@@ -99,6 +99,10 @@ We'll also discuss considerations such as starting small with an eye toward futu
         - Creating app (basically showing command line output in the web browser window...)
         - Eventually it started up but didn't seem to work and I can't figure out why - No ECS definition file?
     - Trying this instead: https://aws.amazon.com/getting-started/projects/deploy-python-application/
+        - _**TODO: YOU ARE HERE**_
+        - This also doesn't appear to use Docker, but...
+        - It does appear to have some useful info: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create-deploy-python-django.html#python-django-configure-for-eb
+        - ...
 - That was taking a while so per [this page](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html) I set up an admin group and user
     - Custom password: ItsASecret! and don't require reset...
 
