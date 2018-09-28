@@ -120,7 +120,7 @@ I'll run through these steps quickly; feel free to ask questions...
 
 #### Note
 
-Asked Iris to tell participants to do the following, so some/all of this may not be necessary:
+_Asked Iris to tell participants to do the following, so some/all of this may not be necessary:_
 - Create GitHub account and pass along username
 - Install Git and configure username, email address, safe/auto CRLF, etc.
 - Install Docker
@@ -195,6 +195,7 @@ Asked Iris to tell participants to do the following, so some/all of this may not
 
 ### Tickets for Development Iteration 1
 
+_Already entered these into GitHub_
 - New users should be able to sign up for the app
 - Existing users should be able to sign into the app
 - A signed in user should see a list of vehicles
@@ -207,14 +208,15 @@ Asked Iris to tell participants to do the following, so some/all of this may not
 
 ### Process
 
+- Divide up into teams of 2-4
 - Assign ticket to collaborator
 - Code, commit, push
 - After a while we'll test and when it looks good we'll go live!
 
 ### Problems We'll Run Into
 
-- "Lose" a collaborator part-way through: what happens to their work?
-- Merge conflicts on `master`
+- "Lose" a collaborator part-way through: what happens to his/her work?
+- Merge conflicts on `master` (high-touch files like `models.py`, `views.py`, etc.)
 - Manual testing is tedious and painful
 - Things will break unexpectedly because we're not well coordinated
 - Will all the pages (views) look the same (consistent)?
@@ -300,11 +302,24 @@ _These in addition to those for Development Iteration 1_
 ### Tickets for Going Live
 
 - Support and Maintenance
+    - Integrate real logging
     - Look at logs in CloudWatch
     - Figure out how to get alerts on problems automatically (don't want to scan CloudWatch all day long)
 - Ongoing Development
     - How do we deal with backwards-compatibility as we move forward (change models, etc.)?
     - How do we upgrade our components (e.g. database, web app/GUI frameworks, etc.)?
+    - Password strength checking
+    - Reset password
+    - Two-Factor Authentication
+    - View all service records across vehicles
+    - Sort lists (vehicles, service entries)
+    - Search vehicles and service entries
+    - Improve object model for vehicles
+        - Standardize make, model, etc.
+        - Any ways to look up things externally? e.g. VIN?
+    - Improve object model for service entries
+        - Standardize parts serviced
+        - Any ways to look up things externally? e.g. Garage/Station?
 - Disaster Recovery
     - AWS data centers / regions
     - AWS backups and other best practices
