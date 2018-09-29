@@ -5,6 +5,7 @@ vehicles = []
 def delete_vehicle(a):
     vehicles.remove(a)
 
+
 def main():
     a = "Vehicle A"
     b = "Vehicle B"
@@ -21,6 +22,7 @@ def main():
     vehicles.append(f)
 
     delete_vehicle(c)
+    delete_vehicle(a)
 
     print(vehicles)
 
