@@ -88,6 +88,9 @@ We'll also discuss considerations such as starting small with an eye toward futu
         - Added the CNAME (from `eb status`) to `imagine2018/settings.py`
         - Copied the `Dockerrun.aws.json` file from the downloaded sample app to the root project directory and modified
         - Tried again with `eb deploy`
+        - Found out that if you're using Git EB only deploys committed files, so you either have to stage changed/added files and do `eb deploy --staged` or commit then do `eb deploy`...!
+        - Had problems with `Dockerrun.aws.json` and `Dockerfile` so read about [single container docker deployments in EG](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_docker_image.html)
+        - ...
     - Try to get to the RDS DB too: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.RDS.html
 - That was taking a while so per [this page](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html) I set up an admin group and user
     - Custom password: ItsASecret! and don't require reset...
