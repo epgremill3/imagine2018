@@ -90,8 +90,15 @@ We'll also discuss considerations such as starting small with an eye toward futu
         - Tried again with `eb deploy`
         - Found out that if you're using Git EB only deploys committed files, so you either have to stage changed/added files and do `eb deploy --staged` or commit then do `eb deploy`...!
         - Had problems with `Dockerrun.aws.json` and `Dockerfile` so read about [single container docker deployments in EG](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_docker_image.html)
-        - ...
-    - Try to get to the RDS DB too: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.RDS.html
+        - Removed space at beginning of every line in `Dockerfile`; added `EXPOSE` and `CMD` lines to `Dockerfile`; removed `Dockerrun.aws.json`... Now it updates and starts...!
+        - To fix DB connection:  
+    - Now trying to [setup a separate RDS database](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.RDS.html)
+        - Created a PostgreSQL instance (created in Ohio which caused a problem; had to delete and recreate in N. Virginia)
+            - DB Instance Identifier: imagine2018-postgres | Master Username: imagine2018 | Master Password: ItsASecret!
+        - Allowed incoming connections from the security group on the DB instance then added that group to the EC2 instances
+        - Configured Environment Properties for the EB environment (EC2 instances)
+        - Modified `settings.py` to use environment settings if present for EB
+        - Redeployed app
 - That was taking a while so per [this page](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html) I set up an admin group and user
     - Custom password: ItsASecret! and don't require reset...
 
