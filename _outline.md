@@ -277,13 +277,17 @@ _These in addition to those for Development Iteration 1_
 
 ### Tickets for Deployment
 
+- 
 - [Setup the ECS (App) cluster](https://aws.amazon.com/getting-started/tutorials/deploy-docker-containers/)
     - [Setup a Docker Registry](https://docs.aws.amazon.com/AmazonECR/latest/userguide/ECR_GetStarted.html)
     - Build Docker image(s) and push to Registry
 - [Setup the RDS (DB) cluster](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.PostgreSQL.html)
+- [Deploy Django/Python3/PostgreSQL app to AWS](https://realpython.com/deploying-a-django-app-and-postgresql-to-aws-elastic-beanstalk/)
+    - Was good, but didn't use Docker...
 - Secure passwords (e.g. DB)
     - Environments
     - KMS or similar
+- Secure the web server (don't use Django development server, etc.)
 
 ## Continuous Integration and Deployment
 
