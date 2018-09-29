@@ -25,7 +25,11 @@ SECRET_KEY = '%g$+*+ak$9m0wfr$9gt+z+x^pe0us$ho+3ma!a7n)cw&v5sit0'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['imagine2018-staging-01.i3a6mjvuww.us-east-1.elasticbeanstalk.com']
+ALLOWED_HOSTS = [
+    'localhost',
+     '127.0.0.1',
+    'imagine2018-epgremill3.us-east-1.elasticbeanstalk.com',
+]
 
 
 # Application definition

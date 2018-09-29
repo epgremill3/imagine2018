@@ -6,6 +6,10 @@ Technologies will include GitHub, Docker, Jenkins, Django, PostgreSQL, and more.
 We'll configure and link these technologies with a sample development workflow then run through the steps to give everyone a feel for the way a professional software project may be run. 
 We'll also discuss considerations such as starting small with an eye toward future growth, how to make changes quickly, and what good testing might look like.
 
+## Project URL
+
+http://imagine2018-epgremill3.us-east-1.elasticbeanstalk.com/
+
 ## Technologies
 
 - GitHub repo
@@ -99,6 +103,16 @@ We'll also discuss considerations such as starting small with an eye toward futu
         - Configured Environment Properties for the EB environment (EC2 instances)
         - Modified `settings.py` to use environment settings if present for EB
         - Redeployed app
+        - Ran migrations
+            - SSH into EC2 container via `eb ssh`
+            - Connect to running Docker container (`docker ps` then `docker exec -i -t XXXX bash`)
+            - Adjust permissions (`chmod 0700 manage.py`) and run migrations (`./manage.py migrate`)
+        - That seems to have done it - all seems to be working!
+    - Minor cleanup
+        - Cloned environment so I could give it a better URL
+        - Added localhost and 127.0.0.1 and new URL to allowed hosts; removed old URL
+        - Terminated the original environment (going with just the cloned with better URL)
+        - Changed `urls.py` so that our `app/` route is now the root route
 - That was taking a while so per [this page](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html) I set up an admin group and user
     - Custom password: ItsASecret! and don't require reset...
 
