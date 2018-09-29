@@ -180,3 +180,8 @@ fabric.properties
 ##########
 .aws/
 .secrets/
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
