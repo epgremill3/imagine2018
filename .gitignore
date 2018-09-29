@@ -178,10 +178,12 @@ fabric.properties
 ##########
 # This is me - just random stuff
 ##########
-.aws/
 .secrets/
 
+
+##########
 # Elastic Beanstalk Files
+##########
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
