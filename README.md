@@ -61,6 +61,50 @@ We'll also discuss considerations such as starting small with an eye toward futu
     - This created a very simple "Hello World" app (tutorial was for polls but I adjusted)
 - Started working through Part 2 of the Django tutorial: https://docs.djangoproject.com/en/2.1/intro/tutorial02/
     - Detoured to how to use the Django authentication / user framework: https://docs.djangoproject.com/en/2.1/topics/auth/
+- _I may come back later and undo the model, etc. that I created, but for now..._
+- Added some issues to the GitHub repo:
+    - Created three milestones (Phase 1, 2, and 3)
+    - Added 11 issues for the functionality we'll want to add in Phase 1
+    - Didn't get to modifying labels yet
+- Experimented with protecting master. It was easy - just go into settings, click on Branches, then check the boxes you want...
+- Signed up for a free tier AWS account. Had to enter a credit card number so don't recommend they do it too, but will show and tell...
+- Setting up a web app in Elastic Beanstalk
+    - Signed into the AWS console (as my root user / email address - need to create IAM role and policies)
+    - Clicked on the "Create a web application via Elastic Beanstalk" option
+        - Application name: imagine2018
+        - Base Configuration: Platform: Multi-container Docker
+        - Base Configuration: Code: Upload your code
+        - Made a ZIP archive of the top level directory (containing everything for the project including `docker-compose.yml`, etc.)
+        - Uploaded that as the code to start the app
+    - Clicked the "Configure more options" button
+        - Configuration presets: Low cost (free-tier eligible)
+        - There are a lot of things that we don't get in the free-tier that we would want/need in the real world:
+            - Software: 
+                - S3 log storage and/or instance log streaming to CloudWatch
+                - Can also set environment variables there...
+            - Capacity: could configure number of instances / auto-load balancing here
+            - Rolling Updates and Deployments: could talk about migrations, etc. and could learn more about options
+            - Notifications: email address; probably can do more...
+            - Database: set this up!
+                - Engine: postgres
+                - Engine version: 10.4
+                - Instance class: db.t2.micro
+                - Storage: 5 GB
+                - Username: imagine2018
+                - Password: ItsASecret!
+                - Retention: set to delete but obviously wouldn't want that if not sticking to free...
+                - Availability: Low (one AZ) for free tier
+                - Clicked the "Save" button
+    - Clicked the "Create App" button
+        - Creating app (basically showing command line output in the web browser window...)
+        - Eventually it started up but didn't seem to work and I can't figure out why - No ECS definition file?
+    - Trying this instead: https://aws.amazon.com/getting-started/projects/deploy-python-application/
+        - _**TODO: YOU ARE HERE**_
+        - This also doesn't appear to use Docker, but...
+        - It does appear to have some useful info: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create-deploy-python-django.html#python-django-configure-for-eb
+        - Try to get to the RDS DB too: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.RDS.html
+- That was taking a while so per [this page](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html) I set up an admin group and user
+    - Custom password: ItsASecret! and don't require reset...
 
 ## TODO
 

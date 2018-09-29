@@ -174,3 +174,9 @@ fabric.properties
 
 # Editor-based Rest Client
 .idea/httpRequests
+
+##########
+# This is me - just random stuff
+##########
+.aws/
+.secrets/
